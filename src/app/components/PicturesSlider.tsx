@@ -26,7 +26,15 @@ const textData = [
   },
 ];
 
-export default function PicturesSlider() {
+export default function PicturesSlider({
+  hasAvatar,
+  typeOfBar,
+  subText,
+}: {
+  hasAvatar: boolean;
+  typeOfBar: "nums" | "bar";
+  subText?: string;
+}) {
   const initialIndex = Math.floor(textData.length / 2);
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
 
@@ -68,32 +76,36 @@ export default function PicturesSlider() {
                   objectFit="cover"
                   priority
                 />
-                <div className="flex flex-row items-center">
-                  <div className="size-10 lg:size-20 mx-2 rounded-full border border-white">
-                    <Image
-                      className=" rounded-full"
-                      src={testimage}
-                      alt={"TestImage"}
-                      priority
-                    />
+                {hasAvatar && (
+                  <div className="flex flex-row items-center">
+                    <div className="size-10 lg:size-20 mx-2 rounded-full border border-white">
+                      <Image
+                        className=" rounded-full"
+                        src={testimage}
+                        alt={"TestImage"}
+                        priority
+                      />
+                    </div>
+                    <div>
+                      <p className="text-sm text-white">
+                        <Ev b i>
+                          {item.text}
+                        </Ev>
+                      </p>
+                      <p className="text-sm text-gray-300">
+                        <Ev i sb>
+                          1454 - 1494
+                        </Ev>
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-sm text-white">
-                      <Ev b i>
-                        {item.text}
-                      </Ev>
-                    </p>
-                    <p className="text-sm text-gray-300">
-                      <Ev i sb>
-                        1454 - 1494
-                      </Ev>
-                    </p>
-                  </div>
-                </div>
+                )}
+
                 <div className=" absolute bottom-1 lg:bottom-3 m-5 lg:m-10 w-auto lg:w-3/4 text-xl lg:text-4xl ">
                   <h3 style={{ fontFamily: "'Gilda Display', serif" }}>
                     <Ev up>museum of art, known as the big bang</Ev>
                   </h3>
+                  {subText && <p className="text-sm">{subText}</p>}
                   <p className="text-sm text-gray-300">
                     <Ev i sb>
                       1470 - 1474
@@ -107,17 +119,23 @@ export default function PicturesSlider() {
       </div>
       <div className=" w-full absolute flex flex-row bottom-24 lg:bottom-10 right-0 items-center justify-around">
         <div className=" flex flex-row w-40">
-          {textData.map((item, index) => (
-            <span
-              key={index}
-              onClick={() => setCurrentIndex(index)}
-              className={` hover:transform hover:scale-110 w-3 lg:w-7 h-[6px] bg-white cursor-pointer ${
-                index === currentIndex
-                  ? "opacity-100 animate-pulse"
-                  : "opacity-15"
-              }`}
-            />
-          ))}
+          {typeOfBar === "nums" && (
+            <Ev sb i>
+              {currentIndex + 1} din {textData.length}
+            </Ev>
+          )}
+          {typeOfBar === "bar" &&
+            textData.map((item, index) => (
+              <span
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={` hover:transform hover:scale-110 w-3 lg:w-7 h-[6px] bg-white cursor-pointer ${
+                  index === currentIndex
+                    ? "opacity-100 animate-pulse"
+                    : "opacity-15"
+                }`}
+              />
+            ))}
         </div>
         <div className="text-gray-600  text-2xl ">
           <button className="hover:text-white" onClick={handlePrev}>

@@ -31,3 +31,33 @@ body {
     text-wrap: balance;
   }
 }
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #333;
+  border-radius: 6px;
+}
+
+* {
+  scrollbar-color: #333 rgba(0, 0, 0, 0.1);
+  scrollbar-width: thin;
+}
+
+*::-ms-scrollbar {
+  width: 12px;
+}
+
+*::-ms-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+*::-ms-scrollbar-thumb {
+  background-color: #333;
+  border-radius: 6px;
+}
