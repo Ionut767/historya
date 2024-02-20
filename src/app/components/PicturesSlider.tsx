@@ -24,6 +24,9 @@ const textData = [
   {
     text: "Text 6 Description",
   },
+  {
+    text: "Text 7 Description",
+  },
 ];
 
 export default function PicturesSlider({
