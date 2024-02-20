@@ -1,74 +1,33 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Ev from "./Ev";
 import Image from "next/legacy/image";
 import testimage from "@/media/LeonardoDaVinci.jpeg";
 import testbg from "@/media/mainbg.jpg";
-
-const textData = [
-  {
-    text: "Text 1 Description",
-  },
-  {
-    text: "Text 2 Description",
-  },
-  {
-    text: "Text 3 Description",
-  },
-  {
-    text: "Text 4 Description",
-  },
-  {
-    text: "Text 5 Description",
-  },
-  {
-    text: "Text 6 Description",
-  },
-  {
-    text: "Text 7 Description",
-  },
-];
+import { authors as sliderdata } from "../sampledata";
 
 export default function PicturesSlider({
   hasAvatar,
   typeOfBar,
   subText,
-  datas,
 }: {
   hasAvatar: boolean;
   typeOfBar: "nums" | "bar";
   subText?: string;
-  datas?: [
-    {
-      author?: {
-        name?: string;
-        image?: string;
-        birthdate?: number;
-        age?: number;
-      };
-      art?: {
-        name?: string;
-        image?: string;
-        age?: string;
-      };
-    }
-  ];
 }) {
-  const initialIndex = Math.floor(textData.length / 2);
+  const initialIndex = Math.floor(sliderdata.length / 2);
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
 
   const handlePrev = () => {
     setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + textData.length) % textData.length
+      (prevIndex) => (prevIndex - 1 + sliderdata.length) % sliderdata.length
     );
   };
 
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % textData.length);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % sliderdata.length);
   };
-  if (datas) {
-    console.log(datas);
-  }
+
   return (
     <div className="relative flex items-center h-[80vh] sm:h-screen overflow-hidden">
       <div className="flex items-center ">
@@ -76,11 +35,11 @@ export default function PicturesSlider({
           className=" w-full jus flex transition-transform duration-500 ease-in-out"
           style={{
             transform: `translateX(-${
-              (currentIndex * 100) / textData.length
+              (currentIndex * 100) / sliderdata.length
             }%)`,
           }}
         >
-          {textData.map((item, index) => (
+          {sliderdata.map((item, index) => (
             <div
               key={index}
               className={` w-screen sm:h-screen h-[80vh] flex items-center justify-center transition-transform duration-500 ease-in-out 
@@ -91,7 +50,12 @@ export default function PicturesSlider({
               <div className="text-white p-4 w-3/4 lg:h-3/4 h-2/4 bg-black relative overflow-hidden z-0">
                 <Image
                   className=" -z-[1] opacity-50"
-                  src={testbg}
+                  src={
+                    hasAvatar
+                      ? testbg
+                      : (("https://lh3.googleusercontent.com/d/" +
+                          item.image) as string)
+                  }
                   alt={"Background"}
                   layout="fill"
                   objectFit="cover"
@@ -102,20 +66,26 @@ export default function PicturesSlider({
                     <div className="size-10 lg:size-20 mx-2 rounded-full border border-white">
                       <Image
                         className=" rounded-full"
-                        src={testimage}
+                        src={
+                          ("https://lh3.googleusercontent.com/d/" +
+                            item.avatar) as string
+                        }
                         alt={"TestImage"}
+                        objectFit="cover"
+                        width={78}
+                        height={76}
                         priority
                       />
                     </div>
                     <div>
                       <p className="text-sm text-white">
                         <Ev b i>
-                          {item.text}
+                          {item.name}
                         </Ev>
                       </p>
                       <p className="text-sm text-gray-300">
                         <Ev i sb>
-                          1454 - 1494
+                          {item.birthdate}
                         </Ev>
                       </p>
                     </div>
@@ -124,12 +94,20 @@ export default function PicturesSlider({
 
                 <div className=" absolute bottom-1 lg:bottom-3 m-5 lg:m-10 w-auto lg:w-3/4 text-xl lg:text-4xl ">
                   <h3 style={{ fontFamily: "'Gilda Display', serif" }}>
-                    <Ev up>museum of art, known as the big bang</Ev>
+                    <Ev up>{hasAvatar ? "Biography" : item.name}</Ev>
                   </h3>
                   {subText && <p className="text-sm">{subText}</p>}
                   <p className="text-sm text-gray-300">
                     <Ev i sb>
-                      1470 - 1474
+                      {parseInt(
+                        item.birthdate.split(" ")?.pop() ?? "Nespecificat",
+                        10
+                      )}{" "}
+                      -{" "}
+                      {parseInt(
+                        item.birthdate.split(" ")?.pop() ?? "Nespecificat",
+                        10
+                      ) + item.age}
                     </Ev>
                   </p>
                 </div>
@@ -142,11 +120,11 @@ export default function PicturesSlider({
         <div className=" flex flex-row w-40">
           {typeOfBar === "nums" && (
             <Ev sb i>
-              {currentIndex + 1} din {textData.length}
+              {currentIndex + 1} din {sliderdata.length}
             </Ev>
           )}
           {typeOfBar === "bar" &&
-            textData.map((item, index) => (
+            sliderdata.map((item, index) => (
               <span
                 key={index}
                 onClick={() => setCurrentIndex(index)}
