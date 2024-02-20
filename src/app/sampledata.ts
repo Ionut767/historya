@@ -68,6 +68,10 @@ export const authors: Author[] = [
         image: "1jtxxbrYQYQsXTeYqS1J8zIWqB7LtENxW",
         name: "Donato di Niccolò di Betto Bardi",
       },
+      {
+        image: "1jtxxbrYQYQsXTeYqS1J8zIWqB7LtENxW",
+        name: "Donato di Niccolò di Betto Bardi",
+      },
     ],
   },
 ];
