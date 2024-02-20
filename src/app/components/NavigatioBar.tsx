@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import Logo from "./Logo";
 export default function NavigationBar() {
   const [open, setOpen] = useState<boolean>(false);
   return (
@@ -11,14 +12,7 @@ export default function NavigationBar() {
           href="/"
           className="flex items-center space-x-3 rtl:space-x-reverse"
         >
-          <img
-            src="https://static.thenounproject.com/png/152493-84.png"
-            className="h-8 invert"
-            alt="Historya Logo"
-          />
-          <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-            Historya
-          </span>
+          <Logo />
         </Link>
         <button
           type="button"

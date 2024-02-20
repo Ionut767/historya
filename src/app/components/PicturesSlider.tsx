@@ -30,10 +30,26 @@ export default function PicturesSlider({
   hasAvatar,
   typeOfBar,
   subText,
+  datas,
 }: {
   hasAvatar: boolean;
   typeOfBar: "nums" | "bar";
   subText?: string;
+  datas?: [
+    {
+      author?: {
+        name?: string;
+        image?: string;
+        birthdate?: number;
+        age?: number;
+      };
+      art?: {
+        name?: string;
+        image?: string;
+        age?: string;
+      };
+    }
+  ];
 }) {
   const initialIndex = Math.floor(textData.length / 2);
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
@@ -47,7 +63,9 @@ export default function PicturesSlider({
   const handleNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % textData.length);
   };
-
+  if (datas) {
+    console.log(datas);
+  }
   return (
     <div className="relative flex items-center h-[80vh] sm:h-screen overflow-hidden">
       <div className="flex items-center ">

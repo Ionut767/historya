@@ -58,9 +58,16 @@ export default function Home() {
         title="Marile Personalități Renascentiste Italiene"
         subtitle="- Importanță, Opere, Viață -"
       >
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, numquam
-        sunt quos, voluptatum, quidem cumque voluptate tempore quae voluptates
-        soluta doloremque.
+        <Ev i b>
+          Renașterea italiană
+        </Ev>{" "}
+        a produs artiști remarcabili precum <Ev i>Leonardo Da Vinci</Ev> care
+        este cunoscut pentru “Mona Lisa” și "Cina cea de Taină",{" "}
+        <Ev i>Michelangelo</Ev> care este faimos pentru “David”, “Pieta” și
+        frescele de pe tavanul Capelei Sixtine și
+        <Ev i>Raphael</Ev> este renumit pentru "Școala din Atena", acești
+        artiști au revoluționând arta prin introducerea perspectivă, a
+        realismului și temelor umaniste.
       </DefText>
       <PicturesSlider hasAvatar={false} typeOfBar={"nums"} />
     </main>

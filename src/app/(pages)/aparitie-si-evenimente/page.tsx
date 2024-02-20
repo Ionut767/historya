@@ -7,11 +7,11 @@ import DefSection from "@/app/components/DefSection";
 export default function Page() {
   return (
     <main
-      className=" flex flex-col justify-center items-center"
+      className=" flex flex-col justify-center items-center p-3"
       style={{ fontFamily: "'Gilda Display', serif" }}
     >
       <section className=" w-full h-[15vh] flex items-center justify-center border-gray-500 border-b-[1px]">
-         <DefTitle>APARIȚIE ȘI URMĂRI</DefTitle> 
+        <DefTitle>APARIȚIE ȘI URMĂRI</DefTitle>
       </section>
       <section className="w-full lg:w-10/12">
         <DefSection
@@ -32,8 +32,8 @@ export default function Page() {
           <br />
           <br />
           <Ev i sb size={1}>
-          &quot; În viaţă, frumuseţea dispare. În artă, nu. &quot; <br />- Leonardo Da
-            Vinci (1452 - 1519)
+            &quot; În viaţă, frumuseţea dispare. În artă, nu. &quot; <br />-
+            Leonardo Da Vinci (1452 - 1519)
           </Ev>
         </DefSection>
         <DefSection
@@ -68,7 +68,7 @@ export default function Page() {
         >
           <Ev i>Dezvoltarea Artei Renascentiste Italiene</Ev> a reprezentat o
           redescoperire profundă a valorilor clasice ale{" "}
-          <Ev i>Antichității greco-romane</Ev> între {" "}
+          <Ev i>Antichității greco-romane</Ev> între{" "}
           <Ev i>secolele XIV și XVI</Ev>. Artiștii și intelectualii s-au dedicat
           studiului operei antice,{" "}
           <Ev i>integrând perspectivele filozofice și estetice</Ev> în creațiile
@@ -83,11 +83,11 @@ export default function Page() {
           <br />
           <br />
           <Ev i sb size={1}>
-          &quot;Problema pe care o au oamenii nu este că ţintesc prea sus şi
-            eşuează, ci că ţintesc prea jos şi reuşesc.&quot; <br />- Michelangelo
-            Buonarroti (1475 - 1564)
+            &quot;Problema pe care o au oamenii nu este că ţintesc prea sus şi
+            eşuează, ci că ţintesc prea jos şi reuşesc.&quot; <br />-
+            Michelangelo Buonarroti (1475 - 1564)
           </Ev>
-        </DefSection> 
+        </DefSection>
       </section>
     </main>
   );
