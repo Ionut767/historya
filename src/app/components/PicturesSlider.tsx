@@ -1,33 +1,31 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Ev from "./Ev";
 import Image from "next/legacy/image";
-import testimage from "@/media/LeonardoDaVinci.jpeg";
 import testbg from "@/media/mainbg.jpg";
-import { authors as sliderdata } from "../sampledata";
-
+import { Author } from "../sampledata";
+// import { authors as sliderdata } from "../sampledata";
 export default function PicturesSlider({
   hasAvatar,
   typeOfBar,
   subText,
+  sliderdata,
 }: {
   hasAvatar: boolean;
   typeOfBar: "nums" | "bar";
   subText?: string;
+  sliderdata: Author[];
 }) {
   const initialIndex = Math.floor(sliderdata.length / 2);
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
-
   const handlePrev = () => {
     setCurrentIndex(
       (prevIndex) => (prevIndex - 1 + sliderdata.length) % sliderdata.length
     );
   };
-
   const handleNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % sliderdata.length);
   };
-
   return (
     <div className="relative flex items-center h-[80vh] sm:h-screen overflow-hidden">
       <div className="flex items-center ">
@@ -59,7 +57,6 @@ export default function PicturesSlider({
                   alt={"Background"}
                   layout="fill"
                   objectFit="cover"
-                  priority
                 />
                 {hasAvatar && (
                   <div className="flex flex-row items-center">
@@ -74,7 +71,6 @@ export default function PicturesSlider({
                         objectFit="cover"
                         width={78}
                         height={76}
-                        priority
                       />
                     </div>
                     <div>
@@ -91,7 +87,6 @@ export default function PicturesSlider({
                     </div>
                   </div>
                 )}
-
                 <div className=" absolute bottom-1 lg:bottom-3 m-5 lg:m-10 w-auto lg:w-3/4 text-xl lg:text-4xl ">
                   <h3 style={{ fontFamily: "'Gilda Display', serif" }}>
                     <Ev up>{hasAvatar ? "Biography" : item.name}</Ev>
@@ -124,7 +119,7 @@ export default function PicturesSlider({
             </Ev>
           )}
           {typeOfBar === "bar" &&
-            sliderdata.map((item, index) => (
+            sliderdata.map((_, index) => (
               <span
                 key={index}
                 onClick={() => setCurrentIndex(index)}

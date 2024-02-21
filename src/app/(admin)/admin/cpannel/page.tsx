@@ -1,5 +1,5 @@
 "use client";
-import insertArtist from "@/app/servercomponents/insertArtist";
+import insertArtist from "@/app/servercomponents/actions";
 import { useFormState } from "react-dom";
 
 export default function ArtistForm() {

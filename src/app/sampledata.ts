@@ -1,4 +1,4 @@
-type Author = {
+export type Author = {
   avatar: string;
   name: string;
   image: string;
@@ -29,29 +29,29 @@ export const authors: Author[] = [
     ],
   },
   {
-    avatar: "1bIypV-oJaTkyrYgcF_TdeN0BXL9aZTN6",
+    avatar: "1h5ZGCj0lbmD-w65r4PVun2iG_F1iLdxN",
     name: "Michelangelo di Lodovico Buonarroti Simoni",
-    image: "1bIypV-oJaTkyrYgcF_TdeN0BXL9aZTN6",
+    image: "1h5ZGCj0lbmD-w65r4PVun2iG_F1iLdxN",
     age: 60,
     birthdate: "6 Martie 1475",
     description: "None",
     arts: [
       {
-        image: "1bIypV-oJaTkyrYgcF_TdeN0BXL9aZTN6",
+        image: "1h5ZGCj0lbmD-w65r4PVun2iG_F1iLdxN",
         name: "Michelangelo di Lodovico Buonarroti Simoni",
       },
     ],
   },
   {
-    avatar: "1ffilQsk2eWsVcouH73yAmDiYc-vvRx0t",
+    avatar: "1h5ZGCj0lbmD-w65r4PVun2iG_F1iLdxN",
     name: "Raffaello Sanzio",
-    image: "1ffilQsk2eWsVcouH73yAmDiYc-vvRx0t",
+    image: "1h5ZGCj0lbmD-w65r4PVun2iG_F1iLdxN",
     age: 37,
     birthdate: "6 Aprilie 1483",
     description: "None",
     arts: [
       {
-        image: "1ffilQsk2eWsVcouH73yAmDiYc-vvRx0t",
+        image: "1h5ZGCj0lbmD-w65r4PVun2iG_F1iLdxN",
         name: "Raffaello Sanzio",
       },
     ],

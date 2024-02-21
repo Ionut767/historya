@@ -20,7 +20,6 @@ export default async function insertArtist(prevState: any, formData: FormData) {
     birthdate: data.birthdate,
     description: data.description,
   });
-  console.log(artist);
   try {
     await artist.save();
     return {
@@ -32,4 +31,25 @@ export default async function insertArtist(prevState: any, formData: FormData) {
       success: false,
     };
   }
+}
+export async function getArtists() {
+  await dbConnect();
+  const artists = await Personalitati.find().lean();
+  // Convert each artist document into a plain JavaScript object
+  const plainArtists = artists.map((artist) => {
+    return {
+      _id: artist._id.toString(),
+      avatar: artist.avatar,
+      name: artist.name,
+      image: artist.image,
+      age: artist.age,
+      birthdate: artist.birthdate,
+      description: artist.description,
+      arts: artist.arts,
+      createdAt: artist.createdAt,
+      updatedAt: artist.updatedAt,
+      __v: artist.__v,
+    };
+  });
+  return plainArtists;
 }
