@@ -35,9 +35,7 @@ export default async function insertArtist(prevState: any, formData: FormData) {
 }
 export async function getArtists() {
   await dbConnect();
-  const artists = await Personalitati.find().lean();
-  // Convert each artist document into a plain JavaScript object
-  const plainArtists = artists.map((artist) => {
+  const artists = (await Personalitati.find().lean()).map((artist) => {
     return {
       _id: (artist._id as ObjectId).toString(),
       avatar: artist.avatar,
@@ -52,5 +50,5 @@ export async function getArtists() {
       __v: artist.__v,
     };
   });
-  return plainArtists;
+  return artists;
 }
