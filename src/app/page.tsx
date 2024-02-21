@@ -5,7 +5,7 @@ import Banner from "./sections/Banner";
 import DefText from "./components/DefText";
 import Ev from "./components/Ev";
 import { useEffect, useState } from "react";
-import { Author } from "./sampledata";
+import { Author } from "./types";
 import { getArtists } from "./servercomponents/actions";
 export default function Home() {
   const [artists, setArtists] = useState<Author[]>([]);

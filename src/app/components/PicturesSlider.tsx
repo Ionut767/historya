@@ -3,8 +3,7 @@ import React, { useEffect, useState } from "react";
 import Ev from "./Ev";
 import Image from "next/legacy/image";
 import testbg from "@/media/mainbg.jpg";
-import { Author } from "../sampledata";
-// import { authors as sliderdata } from "../sampledata";
+import { Author } from "../types";
 export default function PicturesSlider({
   hasAvatar,
   typeOfBar,

@@ -1,6 +1,7 @@
 "use server";
 import dbConnect from "@/libs/connectToDB";
 import Personalitati from "@/models/personalitati";
+import { ObjectId } from "mongodb";
 
 export default async function insertArtist(prevState: any, formData: FormData) {
   await dbConnect();
@@ -38,7 +39,7 @@ export async function getArtists() {
   // Convert each artist document into a plain JavaScript object
   const plainArtists = artists.map((artist) => {
     return {
-      _id: artist._id.toString(),
+      _id: (artist._id as ObjectId).toString(),
       avatar: artist.avatar,
       name: artist.name,
       image: artist.image,
