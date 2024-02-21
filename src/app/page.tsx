@@ -70,11 +70,12 @@ export default function Home() {
           Renașterea italiană
         </Ev>{" "}
         a produs artiști remarcabili precum <Ev i>Leonardo Da Vinci</Ev> care
-        este cunoscut pentru “Mona Lisa” și "Cina cea de Taină",{" "}
-        <Ev i>Michelangelo</Ev> care este faimos pentru “David”, “Pieta” și
-        frescele de pe tavanul Capelei Sixtine și <Ev i>Raphael</Ev> este
-        renumit pentru "Școala din Atena", acești artiști au revoluționând arta
-        prin introducerea perspectivă, a realismului și temelor umaniste.
+        este cunoscut pentru &quot;Mona Lisa&quot; și &quot;Cina cea de
+        Taină&quot;, <Ev i>Michelangelo</Ev> care este faimos pentru
+        &quot;David&quot;, &quot;Pieta&quot; și frescele de pe tavanul Capelei
+        Sixtine și <Ev i>Raphael</Ev> este renumit pentru &quot;Școala din
+        Atena&quot;, acești artiști au revoluționând arta prin introducerea
+        perspectivă, a realismului și temelor umaniste.
       </DefText>
       <PicturesSlider
         hasAvatar={false}
