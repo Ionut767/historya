@@ -1,9 +1,10 @@
 "use server";
 import dbConnect from "@/libs/connectToDB";
+import Orase from "@/models/orase";
 import Personalitati from "@/models/personalitati";
 import { ObjectId } from "mongodb";
-
-export default async function insertArtist(prevState: any, formData: FormData) {
+// Insert Content
+export async function insertArtist(prevState: any, formData: FormData) {
   await dbConnect();
   const data = {
     avatar: formData.get("avatar"),
@@ -14,6 +15,7 @@ export default async function insertArtist(prevState: any, formData: FormData) {
     description: formData.get("description"),
   };
   const artist = new Personalitati({
+    _id: new ObjectId(),
     avatar: data.image,
     name: data.name,
     image: data.image,
@@ -33,6 +35,34 @@ export default async function insertArtist(prevState: any, formData: FormData) {
     };
   }
 }
+export async function insertCity(prevState: any, formData: FormData) {
+  await dbConnect();
+  const data = {
+    name: formData.get("name"),
+    description: formData.get("description"),
+    subdescription: formData.get("subdescription"),
+    image: formData.get("image"),
+  };
+  const city = new Orase({
+    _id: new ObjectId(),
+    name: data.name,
+    description: data.description,
+    subdescription: data.subdescription,
+    image: data.image,
+  });
+  try {
+    await city.save();
+    return {
+      success: true,
+    };
+  } catch (error) {
+    console.log(error);
+    return {
+      success: false,
+    };
+  }
+}
+// Get Content
 export async function getArtists() {
   await dbConnect();
   const artists = (await Personalitati.find().lean()).map((artist) => {
@@ -51,4 +81,27 @@ export async function getArtists() {
     };
   });
   return artists;
+}
+export async function getArtist(id: string) {
+  await dbConnect();
+  const artist = await Personalitati.findOne({ _id: id }).lean();
+  return artist;
+}
+export async function getCitys() {
+  await dbConnect();
+  const cities = (await Orase.find().lean()).map((city) => {
+    return {
+      _id: (city._id as ObjectId).toString(),
+      name: city.name,
+      description: city.description,
+      subdescription: city.subdescription,
+      image: city.image,
+    };
+  });
+  return cities;
+}
+export async function getCity(name: string) {
+  await dbConnect();
+  const city = await Orase.findOne({ name: name }).lean();
+  return city;
 }

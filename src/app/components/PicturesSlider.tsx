@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Ev from "./Ev";
 import Image from "next/legacy/image";
 import testbg from "@/media/mainbg.jpg";

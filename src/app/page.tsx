@@ -6,13 +6,16 @@ import DefText from "./components/DefText";
 import Ev from "./components/Ev";
 import { useEffect, useState } from "react";
 import { Author } from "./types";
-import { getArtists } from "./servercomponents/actions";
+import { getArtists, getCitys } from "./servercomponents/actions";
 export default function Home() {
   const [artists, setArtists] = useState<Author[]>([]);
+  const [orase, setOrase] = useState([]);
   useEffect(() => {
     getArtists().then((data: any) => setArtists(data));
     console.log("artists are present to the sliders");
+    getCitys().then((data: any) => setOrase(data));
   }, []);
+
   return (
     <main>
       <Banner />
@@ -61,7 +64,7 @@ export default function Home() {
         și finanțe, care au influențat profund cultura europeană prin
         complexitatea și importanța sa.
       </DefText>
-      <Orase />
+      <Orase dataOrase={orase} />
       <DefText
         title="Marile Personalități Renascentiste Italiene"
         subtitle="- Importanță, Opere, Viață -"

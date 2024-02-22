@@ -1,5 +1,4 @@
 import Image from "next/legacy/image";
-import Ev from "./Ev";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 export default function DefSection({
   children,

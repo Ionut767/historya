@@ -1,12 +1,11 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import Logo from "./Logo";
 export default function NavigationBar() {
   const [open, setOpen] = useState<boolean>(false);
   return (
-    <nav className="border-gray-200 bg-black fixed w-full z-[51] md:opacity-70 opacity-100 hover:opacity-100 transition-opacity duration-100">
+    <nav className="border-gray-200 bg-black sticky top-0 w-full z-[51] md:opacity-70 opacity-100 hover:opacity-100 transition-opacity duration-100">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Link
           href="/"

@@ -7,13 +7,13 @@ import DefSection from "@/app/components/DefSection";
 export default function Page() {
   return (
     <main
-      className=" flex flex-col justify-center items-center p-3"
+      className="  flex flex-col justify-center items-center "
       style={{ fontFamily: "'Gilda Display', serif" }}
     >
-      <section className=" w-full h-[15vh] flex items-center justify-center border-gray-500 border-b-[1px]">
+      <div className=" w-full h-[15vh] flex items-center justify-center border-gray-500 border-b-[1px]">
         <DefTitle>APARIȚIE ȘI URMĂRI</DefTitle>
-      </section>
-      <section className="w-full lg:w-10/12">
+      </div>
+      <section className="container">
         <DefSection
           title={"Apariția artei în perioada Renașteri"}
           subtitle={"- Italia -"}

@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="sm:flex sm:items-center sm:justify-between">
           <Link
             href="/"
-            className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse"
+            className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse justify-center"
           >
             <Logo />
           </Link>
@@ -35,7 +35,7 @@ export default function Footer() {
             </li>
           </ul>
         </div>
-        <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+        <hr className="my-6 sm:mx-auto border-gray-700 lg:my-8" />
         <span className="block text-sm text-gray-500 text-center dark:text-gray-400">
           © {new Date().getFullYear()}{" "}
           <Link href="/" className="hover:underline">

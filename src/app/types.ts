@@ -18,3 +18,10 @@ export type Author = {
   updatedAt: Date;
   __v: number;
 };
+export type Oras = {
+  _id: ObjectId;
+  name: string;
+  description: string;
+  subdescription: string;
+  image: string;
+};

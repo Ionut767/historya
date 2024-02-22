@@ -10,7 +10,7 @@ const ArtSchema = new Schema({
 
 const PersonalitatiSchema = new Schema(
   {
-    _id: { type: ObjectId, required: true },
+    _id: { type: ObjectId, required: true, unique: true },
     avatar: { type: String, required: true },
     name: { type: String, required: true },
     image: { type: String, required: true },
