@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import Ev from "./Ev";
 import Image from "next/legacy/image";
-import testbg from "@/media/mainbg.jpg";
 import { Author } from "../types";
 export default function PicturesSlider({
   hasAvatar,
@@ -48,8 +47,9 @@ export default function PicturesSlider({
                 <Image
                   className=" -z-[1] opacity-50"
                   src={
-                    hasAvatar
-                      ? testbg
+                    hasAvatar && item.arts.length > 0
+                      ? "https://lh3.googleusercontent.com/d/" +
+                        item.arts[0].image
                       : (("https://lh3.googleusercontent.com/d/" +
                           item.image) as string)
                   }
@@ -88,21 +88,31 @@ export default function PicturesSlider({
                 )}
                 <div className=" absolute bottom-1 lg:bottom-3 m-5 lg:m-10 w-auto lg:w-3/4 text-xl lg:text-4xl ">
                   <h3 style={{ fontFamily: "'Gilda Display', serif" }}>
-                    <Ev up>{hasAvatar ? "Biography" : item.name}</Ev>
+                    <Ev up>
+                      {hasAvatar && item.arts.length > 0
+                        ? item.arts[0].name
+                        : item.name}
+                    </Ev>
                   </h3>
                   {subText && <p className="text-sm">{subText}</p>}
                   <p className="text-sm text-gray-300">
-                    <Ev i sb>
-                      {parseInt(
-                        item.birthdate.split(" ")?.pop() ?? "Nespecificat",
-                        10
-                      )}{" "}
-                      -{" "}
-                      {parseInt(
-                        item.birthdate.split(" ")?.pop() ?? "Nespecificat",
-                        10
-                      ) + item.age}
-                    </Ev>
+                    {hasAvatar && item.arts.length > 0 ? (
+                      <Ev i sb>
+                        {item.arts[0].age}
+                      </Ev>
+                    ) : (
+                      <Ev i sb>
+                        {parseInt(
+                          item.birthdate.split(" ")?.pop() ?? "Nespecificat",
+                          10
+                        )}{" "}
+                        -
+                        {parseInt(
+                          item.birthdate.split(" ")?.pop() ?? "Nespecificat",
+                          10
+                        ) + item.age}
+                      </Ev>
+                    )}
                   </p>
                 </div>
               </div>

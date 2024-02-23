@@ -5,14 +5,13 @@ import Banner from "./sections/Banner";
 import DefText from "./components/DefText";
 import Ev from "./components/Ev";
 import { useEffect, useState } from "react";
-import { Author } from "./types";
+import { Author, Oras } from "./types";
 import { getArtists, getCitys } from "./servercomponents/actions";
 export default function Home() {
   const [artists, setArtists] = useState<Author[]>([]);
-  const [orase, setOrase] = useState([]);
+  const [orase, setOrase] = useState<Oras[]>([]);
   useEffect(() => {
     getArtists().then((data: any) => setArtists(data));
-    console.log("artists are present to the sliders");
     getCitys().then((data: any) => setOrase(data));
   }, []);
 

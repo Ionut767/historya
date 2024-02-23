@@ -23,6 +23,7 @@ export async function insertArtist(prevState: any, formData: FormData) {
     birthdate: data.birthdate,
     description: data.description,
   });
+
   try {
     await artist.save();
     return {
@@ -62,6 +63,34 @@ export async function insertCity(prevState: any, formData: FormData) {
     };
   }
 }
+export async function addArt(prevState: any, formData: FormData) {
+  await dbConnect();
+  const data = {
+    _id: new ObjectId().toString(),
+    image: formData.get("image"),
+    name: formData.get("name"),
+    description: formData.get("description"),
+    age: formData.get("age"),
+  };
+  const artistId = formData.get("artistId");
+  const artist = await Personalitati.findById(artistId);
+  if (!artist) {
+    throw new Error("No artist found with the given id");
+  }
+  artist.arts.push(data);
+  try {
+    await artist.save();
+    return {
+      success: true,
+    };
+  } catch (error) {
+    console.log(error);
+    return {
+      success: false,
+    };
+  }
+}
+
 // Get Content
 export async function getArtists() {
   await dbConnect();
@@ -74,9 +103,12 @@ export async function getArtists() {
       age: artist.age,
       birthdate: artist.birthdate,
       description: artist.description,
-      arts: artist.arts,
-      createdAt: artist.createdAt,
-      updatedAt: artist.updatedAt,
+      arts: artist.arts.map((art: any) => ({
+        ...art,
+        _id: art._id.toString(),
+      })),
+      createdAt: artist.createdAt.toISOString(),
+      updatedAt: artist.updatedAt.toISOString(),
       __v: artist.__v,
     };
   });
@@ -102,6 +134,9 @@ export async function getCitys() {
 }
 export async function getCity(name: string) {
   await dbConnect();
-  const city = await Orase.findOne({ name: name }).lean();
-  return city;
+  const city: any = await Orase.findOne({ name: name }).lean();
+  return {
+    ...city,
+    _id: (city._id as ObjectId).toString(),
+  };
 }

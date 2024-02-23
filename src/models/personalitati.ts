@@ -10,14 +10,14 @@ const ArtSchema = new Schema({
 
 const PersonalitatiSchema = new Schema(
   {
-    _id: { type: ObjectId, required: true, unique: true },
+    _id: { type: ObjectId },
     avatar: { type: String, required: true },
     name: { type: String, required: true },
     image: { type: String, required: true },
     age: { type: Number, required: true },
     birthdate: { type: String, required: true },
     description: { type: String, required: true },
-    arts: { type: [ArtSchema], required: false },
+    arts: { type: [ArtSchema], required: false, default: [] },
   },
   {
     timestamps: true,

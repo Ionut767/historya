@@ -3,7 +3,7 @@ import { ObjectId } from "mongodb";
 
 const OraseSchema = new Schema(
   {
-    _id: { type: ObjectId, required: true, unique: true },
+    _id: { type: ObjectId, required: true },
     name: { type: String, required: true },
     description: { type: String, required: false },
     subdescription: { type: String, required: false },
