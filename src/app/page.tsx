@@ -10,9 +10,17 @@ import { getArtists, getCitys } from "./servercomponents/actions";
 export default function Home() {
   const [artists, setArtists] = useState<Author[]>([]);
   const [orase, setOrase] = useState<Oras[]>([]);
+  const [loadingArtists, setLoadingArtists] = useState<boolean>(true);
+  const [loadingOrase, setLoadingOrase] = useState<boolean>(true);
   useEffect(() => {
-    getArtists().then((data: any) => setArtists(data));
-    getCitys().then((data: any) => setOrase(data));
+    getArtists().then((data: any) => {
+      setArtists(data);
+      setLoadingArtists(false);
+    });
+    getCitys().then((data: any) => {
+      setOrase(data);
+      setLoadingOrase(false);
+    });
   }, []);
 
   return (
@@ -46,7 +54,12 @@ export default function Home() {
           Citește mai mult...
         </Ev>
       </DefText>
-      <PicturesSlider hasAvatar={true} typeOfBar={"bar"} sliderdata={artists} />
+      <PicturesSlider
+        loadingState={loadingArtists}
+        hasAvatar={true}
+        typeOfBar={"bar"}
+        sliderdata={artists}
+      />
       <DefText
         title="ORAȘE RENASCENTISTE ITALIENE"
         subtitle="- Dezvoltare și Cultură -"
@@ -63,7 +76,7 @@ export default function Home() {
         și finanțe, care au influențat profund cultura europeană prin
         complexitatea și importanța sa.
       </DefText>
-      <Orase dataOrase={orase} />
+      <Orase dataOrase={orase} loadingState={loadingOrase} />
       <DefText
         title="Marile Personalități Renascentiste Italiene"
         subtitle="- Importanță, Opere, Viață -"
@@ -80,6 +93,7 @@ export default function Home() {
         perspectivă, a realismului și temelor umaniste.
       </DefText>
       <PicturesSlider
+        loadingState={loadingArtists}
         hasAvatar={false}
         typeOfBar={"bar"}
         sliderdata={artists}
