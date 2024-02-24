@@ -9,6 +9,7 @@ export type Author = {
   birthdate: string;
   description: string;
   arts: {
+    _id: ObjectId;
     image: string;
     name: string;
     description?: string;
