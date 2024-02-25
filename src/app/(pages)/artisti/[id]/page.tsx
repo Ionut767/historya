@@ -6,11 +6,23 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import Loading from "@/app/components/Loading";
 import NotFound from "@/app/components/NotFound";
-
+import Modal from "react";
+import { Art } from "@/app/types";
 export default function Artisti() {
   const { id } = useParams();
   const [artist, setArtist] = useState<Author>({} as Author);
   const [loading, setLoading] = useState<boolean>(true);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [selectedArt, setSelectedArt] = useState<Art>();
+
+  const openDialog = (art: Modal.SetStateAction<null>) => {
+    setSelectedArt(art as unknown as Art);
+    setIsOpen(true);
+  };
+
+  const closeDialog = () => {
+    setIsOpen(false);
+  };
   useEffect(() => {
     getArtist(id as string).then((data: any) => {
       setArtist(data);
@@ -68,17 +80,36 @@ export default function Artisti() {
                 <div
                   key={art._id}
                   className="w-full sm:w-1/2 lg:w-1/3 xl:w-1/4"
+                  onClick={() => openDialog(art)}
                 >
                   <Image
                     src={"https://lh3.googleusercontent.com/d/" + art.image}
                     width={300}
                     height={300}
                     alt={art.name + " Image"}
-                    className="rounded-lg"
+                    className="rounded-lg cursor-pointer"
                   />
                 </div>
               ))}
             </div>
+
+            <dialog
+              open={isOpen}
+              onClick={closeDialog}
+              className="fixed inset-0 flex items-center justify-center z-10"
+            >
+              {selectedArt && (
+                <Image
+                  src={
+                    "https://lh3.googleusercontent.com/d/" + selectedArt.image
+                  }
+                  width={500}
+                  height={500}
+                  alt={selectedArt.name + " Image"}
+                  className="rounded-lg"
+                />
+              )}
+            </dialog>
           </div>
         </>
       ) : (

@@ -19,7 +19,7 @@ export default function Orase() {
       setOras(data);
       setLoading(false);
     });
-  }, [name]);
+  }, [nume]);
   return (
     <main className="container min-h-[70vh] flex items-center flex-col">
       {loading ? (

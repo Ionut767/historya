@@ -26,3 +26,10 @@ export type Oras = {
   subdescription: string;
   image: string;
 };
+export type Art = {
+  _id: ObjectId;
+  image: string;
+  name: string;
+  description?: string;
+  age?: string;
+};
