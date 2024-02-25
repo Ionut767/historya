@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 import { Oras } from "@/app/types";
 import { getCity } from "@/app/servercomponents/actions";
 import Image from "next/image";
+import Loading from "@/app/components/Loading";
+import NotFound from "@/app/components/NotFound";
 
 export default function Orase() {
   const { name } = useParams();
@@ -17,35 +19,28 @@ export default function Orase() {
       setOras(data);
       setLoading(false);
     });
-  });
+  }, [name]);
   return (
-    <main className="container min-h-screen flex items-center flex-col">
+    <main className="container min-h-[70vh] flex items-center flex-col">
       {loading ? (
-        <div className="w-full h-full flex-col content-center flex items-center justify-center">
-          <div className="flex mb-3 justify-center items-center">
-            <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-purple-500"></div>
-          </div>
-          <Ev i b>
-            Se încarcă datele...
-          </Ev>
-        </div>
-      ) : (
+        <Loading />
+      ) : oras && oras !== null ? (
         <>
-          <DefText
-            title={oras.name}
-            subtitle={oras.subdescription}
-            titlesize={6}
-          >
-            <Ev i>{oras.description}</Ev>
-          </DefText>
-          <Image
-            src={"https://lh3.googleusercontent.com/d/" + oras.image}
-            alt={oras.name}
-            className=" mt-7"
-            width={500}
-            height={500}
-          />
+          <div className="w-full md:w-3/4 flex flex-col items-center bg-zinc-950 p-4 rounded-lg shadow-lg text-white">
+            <Image
+              src={"https://lh3.googleusercontent.com/d/" + oras.image}
+              alt={oras.name}
+              className="rounded-lg shadow-lg mb-4"
+              width={500}
+              height={500}
+            />
+            <h1 className="text-6xl font-bold">{oras.name}</h1>
+            <p className="mt-2 text-gray-300">{oras.subdescription}</p>
+            <p className="mt-2 italic text-gray-300">{oras.description}</p>
+          </div>
         </>
+      ) : (
+        <NotFound />
       )}
     </main>
   );

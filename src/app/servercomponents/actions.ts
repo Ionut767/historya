@@ -157,9 +157,13 @@ export async function getCitys() {
 }
 export async function getCity(name: string) {
   await dbConnect();
-  const city: any = await Orase.findOne({ name: name }).lean();
-  return {
-    ...city,
-    _id: (city._id as ObjectId).toString(),
-  };
+  try {
+    const city: any = await Orase.findOne({ name: name }).lean();
+    return {
+      ...city,
+      _id: (city._id as ObjectId).toString(),
+    };
+  } catch (error) {
+    return null;
+  }
 }
