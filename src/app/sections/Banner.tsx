@@ -1,6 +1,7 @@
 import Image from "next/legacy/image";
 import AImage from "@/media/bannerbg.jpg";
 import { redirect } from "next/navigation";
+import Link from "next/link";
 export default function Banner() {
   return (
     <section
@@ -33,9 +34,11 @@ export default function Banner() {
           </p>
         </div>
         <div className="z-50 absolute sm:bottom-48 bottom-64 left-1/2 transform -translate-x-1/2">
-          <button className="h-16 w-16 rounded-full bg-transparent border-2 border-white hover:bg-white hover:text-black active:scale-90 transition duration-150 ease-in-out animate-bounce shadow-lg hover:shadow-none">
-            ↓
-          </button>
+          <Link href="#content">
+            <button className="h-16 w-16 rounded-full bg-transparent border-2 border-white hover:bg-white hover:text-black active:scale-90 transition duration-150 ease-in-out animate-bounce shadow-lg hover:shadow-none">
+              ↓
+            </button>
+          </Link>
         </div>
       </div>
     </section>

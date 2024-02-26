@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Ev from "./Ev";
 import Image from "next/legacy/image";
 import { Author } from "../types";
+import Link from "next/link";
 export default function PicturesSlider({
   hasAvatar,
   typeOfBar,
@@ -90,65 +91,75 @@ export default function PicturesSlider({
                       objectFit="cover"
                     />
                     {hasAvatar && (
-                      <div className="flex flex-row items-center">
-                        <div className="size-10 lg:size-20 mx-2 rounded-full border border-white">
-                          <Image
-                            className=" rounded-full"
-                            src={
-                              ("https://lh3.googleusercontent.com/d/" +
-                                item.avatar) as string
-                            }
-                            alt={"TestImage"}
-                            objectFit="cover"
-                            width={78}
-                            height={76}
-                          />
+                      <Link href={`/artisti/${item._id}`}>
+                        <div className="flex flex-row items-center">
+                          <div className="size-10 lg:size-20 mx-2 rounded-full border border-white">
+                            <Image
+                              className=" rounded-full"
+                              src={
+                                ("https://lh3.googleusercontent.com/d/" +
+                                  item.avatar) as string
+                              }
+                              alt={"TestImage"}
+                              objectFit="cover"
+                              width={78}
+                              height={76}
+                            />
+                          </div>
+                          <div>
+                            <p className="text-sm text-white">
+                              <Ev b i>
+                                {item.name}
+                              </Ev>
+                            </p>
+                            <p className="text-sm text-gray-300">
+                              <Ev i sb>
+                                {item.birthdate}
+                              </Ev>
+                            </p>
+                          </div>
                         </div>
-                        <div>
-                          <p className="text-sm text-white">
-                            <Ev b i>
-                              {item.name}
-                            </Ev>
-                          </p>
-                          <p className="text-sm text-gray-300">
-                            <Ev i sb>
-                              {item.birthdate}
-                            </Ev>
-                          </p>
-                        </div>
-                      </div>
+                      </Link>
                     )}
-                    <div className=" absolute bottom-1 lg:bottom-3 m-5 lg:m-10 w-auto lg:w-3/4 text-xl lg:text-4xl ">
-                      <h3 style={{ fontFamily: "'Gilda Display', serif" }}>
-                        <Ev up>
-                          {hasAvatar && item.arts.length > 0
-                            ? item.arts[0].name
-                            : item.name}
-                        </Ev>
-                      </h3>
-                      {subText && <p className="text-sm">{subText}</p>}
-                      <p className="text-sm text-gray-300">
-                        {hasAvatar && item.arts.length > 0 ? (
-                          <Ev i sb>
-                            {item.arts[0].age}
+                    <Link
+                      href={
+                        hasAvatar && item.arts.length > 0
+                          ? `/arta/${item.arts[0]._id}`
+                          : `/artisti/${item._id}`
+                      }
+                    >
+                      <div className=" absolute bottom-1 lg:bottom-3 m-5 lg:m-10 w-auto lg:w-3/4 text-xl lg:text-4xl ">
+                        <h3 style={{ fontFamily: "'Gilda Display', serif" }}>
+                          <Ev up>
+                            {hasAvatar && item.arts.length > 0
+                              ? item.arts[0].name
+                              : item.name}
                           </Ev>
-                        ) : (
-                          <Ev i sb>
-                            {parseInt(
-                              item.birthdate.split(" ")?.pop() ??
-                                "Nespecificat",
-                              10
-                            )}{" "}
-                            -
-                            {parseInt(
-                              item.birthdate.split(" ")?.pop() ??
-                                "Nespecificat",
-                              10
-                            ) + item.age}
-                          </Ev>
-                        )}
-                      </p>
-                    </div>
+                        </h3>
+                        {subText && <p className="text-sm">{subText}</p>}
+                        <p className="text-sm text-gray-300">
+                          {hasAvatar && item.arts.length > 0 ? (
+                            <Ev i sb>
+                              {item.arts[0].age}
+                            </Ev>
+                          ) : (
+                            <Ev i sb>
+                              {parseInt(
+                                item.birthdate.split(" ")?.pop() ??
+                                  "Nespecificat",
+                                10
+                              )}{" "}
+                              -
+                              {parseInt(
+                                item.birthdate.split(" ")?.pop() ??
+                                  "Nespecificat",
+                                10
+                              ) + item.age}
+                            </Ev>
+                          )}
+                        </p>
+                      </div>
+                    </Link>
                   </div>
                 </div>
               ))}

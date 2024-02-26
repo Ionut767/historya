@@ -26,7 +26,12 @@ export default function Home() {
   return (
     <main>
       <Banner />
-      <DefText title="APARIȚIE ȘI URMĂRI" subtitle="- XIV -">
+      <DefText
+        id="content"
+        title="APARIȚIE ȘI URMĂRI"
+        subtitle="- XIV -"
+        alwaysShow
+      >
         <Ev i b>
           Renașterea italiană
         </Ev>{" "}

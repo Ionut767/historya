@@ -94,25 +94,29 @@ export async function addArt(prevState: any, formData: FormData) {
 // Get Content
 export async function getArtists() {
   await dbConnect();
-  const artists = (await Personalitati.find().lean()).map((artist) => {
-    return {
-      _id: (artist._id as ObjectId).toString(),
-      avatar: artist.avatar,
-      name: artist.name,
-      image: artist.image,
-      age: artist.age,
-      birthdate: artist.birthdate,
-      description: artist.description,
-      arts: artist.arts.map((art: any) => ({
-        ...art,
-        _id: art._id.toString(),
-      })),
-      createdAt: artist.createdAt.toISOString(),
-      updatedAt: artist.updatedAt.toISOString(),
-      __v: artist.__v,
-    };
-  });
-  return artists;
+  try {
+    const artists = (await Personalitati.find().lean()).map((artist) => {
+      return {
+        _id: (artist._id as ObjectId).toString(),
+        avatar: artist.avatar,
+        name: artist.name,
+        image: artist.image,
+        age: artist.age,
+        birthdate: artist.birthdate,
+        description: artist.description,
+        arts: artist.arts.map((art: any) => ({
+          ...art,
+          _id: art._id.toString(),
+        })),
+        createdAt: artist.createdAt.toISOString(),
+        updatedAt: artist.updatedAt.toISOString(),
+        __v: artist.__v,
+      };
+    });
+    return artists;
+  } catch (e) {
+    return null;
+  }
 }
 export async function getArtist(id: string) {
   await dbConnect();

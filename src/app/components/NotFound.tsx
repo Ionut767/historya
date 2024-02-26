@@ -1,7 +1,7 @@
 import Image from "next/image";
 import errimage from "@/media/Codul-lui-Michelangelo-Capela-Sixtina.png";
-import { redirect } from "next/navigation";
 import Link from "next/link";
+import Ev from "./Ev";
 export default function NotFound() {
   return (
     <div className="w-full h-full justify-center items-center px-8 pt-6 pb-8 mb-4 flex flex-col">
@@ -11,8 +11,20 @@ export default function NotFound() {
           Această pagină nu există sau a fost ștearsă!
         </h1>
       </div>
+      <p className="mb-6 text-gray-400 text-center text-sm">
+        <Ev i sb>
+          Va rugăm să{" "}
+          <Ev i l b lnk={{ out: false, link: "/contact" }}>
+            contactați
+          </Ev>{" "}
+          in administrator în legătură cu această pagină!
+        </Ev>
+      </p>
       <p className="mb-6 text-gray-400 text-center">
-        Apăsați pe butonul de mai jos pentru a reveni la pagina principală
+        <Ev i sb>
+          {" "}
+          Apăsați pe butonul de mai jos pentru a reveni la pagina principală
+        </Ev>
       </p>
       <div className="flex items-center justify-between">
         <Link href={"/"}>

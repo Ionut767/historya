@@ -21,7 +21,7 @@ export default function Orase() {
     });
   }, [nume]);
   return (
-    <main className="container min-h-[70vh] flex items-center flex-col">
+    <div className="container min-h-[70vh] flex items-center flex-col">
       {loading ? (
         <Loading />
       ) : oras && oras !== null ? (
@@ -42,6 +42,6 @@ export default function Orase() {
       ) : (
         <NotFound />
       )}
-    </main>
+    </div>
   );
 }

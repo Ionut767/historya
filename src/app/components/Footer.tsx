@@ -12,27 +12,22 @@ export default function Footer() {
           >
             <Logo />
           </Link>
-          <ul className="flex flex-wrap justify-center sm:justify-normal items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
-            <li>
-              <a href="#" className="hover:underline me-4 md:me-6">
-                About
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:underline me-4 md:me-6">
-                Privacy Policy
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:underline me-4 md:me-6">
-                Licensing
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:underline">
-                Contact
-              </a>
-            </li>
+          <ul className="flex flex-wrap justify-center sm:justify-normal items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400 last:me-0 last:md:me-0">
+            {[
+              { id: "informatii", name: "Informatii" },
+              { id: "privacy-policy", name: "Privacy Policy" },
+              { id: "licensing", name: "Licensing" },
+              { id: "contact", name: "Contact" },
+            ].map((bg) => (
+              <li key={bg.id}>
+                <Link
+                  href={"/" + bg.id}
+                  className="hover:underline me-4 md:me-6"
+                >
+                  {bg.name}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
         <hr className="my-6 sm:mx-auto border-gray-700 lg:my-8" />
