@@ -28,7 +28,7 @@ export default function Artisti() {
           </DefTitle>
           <div className=" flex md:flex-row flex-col mt-4">
             {artisti.map((artist: Author) => (
-              <Link href={"/artisti/" + artist._id}>
+              <Link href={"/artisti/" + artist._id} key={artist.name}>
                 <div className=" group m-2 bg-zinc-950 hover:bg-zinc-900 transition-colors duration-700 h-fit shadow-lg rounded-lg overflow-hidden ">
                   <Image
                     src={"https://lh3.googleusercontent.com/d/" + artist.avatar}
