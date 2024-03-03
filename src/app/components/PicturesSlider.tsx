@@ -124,7 +124,7 @@ export default function PicturesSlider({
                     <Link
                       href={
                         hasAvatar && item.arts.length > 0
-                          ? `/arta/${item.arts[0]._id}`
+                          ? `/arta#${item._id}`
                           : `/artisti/${item._id}`
                       }
                     >

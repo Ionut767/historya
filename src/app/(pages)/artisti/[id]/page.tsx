@@ -18,7 +18,10 @@ export default function Artisti() {
     });
   }, [id, setArtist]);
   return (
-    <div className="container min-h-[75vh] flex md:flex-row flex-col">
+    <div
+      className="container min-h-[75vh] flex md:flex-row flex-col"
+      style={{ fontFamily: "'Gilda Display', serif" }}
+    >
       {loading ? (
         <Loading />
       ) : artist && artist !== null ? (
@@ -32,7 +35,7 @@ export default function Artisti() {
               className="rounded-lg"
             />
             <div className="mt-4 md:w-auto w-full bg-zinc-700 p-2 rounded-lg">
-              <h1 className="text-2xl font-bold text-white">
+              <h1 className="text-xl font-bold text-white">
                 Nume: <br />
                 <span className="font-normal text-gray-300">{artist.name}</span>
               </h1>
@@ -41,20 +44,22 @@ export default function Artisti() {
                 <span className="font-normal text-gray-300">{artist.age}</span>
               </p>
               <p className="mt-2 text-white">
-                Anul nasterii: <br />
-                <span className="font-normal text-gray-300">
-                  {artist.birthdate}
-                </span>
-              </p>
-              <p className="mt-2 text-white">
-                Anul decesului: <br />
+                Anul nașterii: <br />
                 <span className="font-normal text-gray-300">
                   {parseInt(
                     artist.birthdate.split(" ")?.pop() ?? "Nespecificat",
                     10
-                  ) + artist.age}
+                  )}
                 </span>
               </p>
+              <p>Imagine:</p>
+              <Image
+                src={"https://lh3.googleusercontent.com/d/" + artist.image}
+                width={600}
+                height={600}
+                alt={artist.name + " Image"}
+                className="rounded-lg"
+              />
             </div>
           </div>
           <div className="w-full md:mb-0 mb-10 md:w-3/4 flex flex-col bg-zinc-950 p-4 rounded-lg shadow-lg">

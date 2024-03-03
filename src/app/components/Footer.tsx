@@ -16,7 +16,6 @@ export default function Footer() {
             {[
               { id: "informatii", name: "Informatii" },
               { id: "privacy-policy", name: "Privacy Policy" },
-              { id: "licensing", name: "Licensing" },
               { id: "contact", name: "Contact" },
             ].map((bg) => (
               <li key={bg.id}>

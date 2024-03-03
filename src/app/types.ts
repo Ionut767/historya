@@ -8,13 +8,7 @@ export type Author = {
   age: number;
   birthdate: string;
   description: string;
-  arts: {
-    _id: ObjectId;
-    image: string;
-    name: string;
-    description?: string;
-    age?: string;
-  }[];
+  arts: Art[];
   createdAt: Date;
   updatedAt: Date;
   __v: number;

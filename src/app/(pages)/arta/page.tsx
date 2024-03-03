@@ -27,7 +27,8 @@ export default function Arta() {
             Artiștii Italiei Renascentiste
           </DefTitle>
           {artisti.map((artist: Author) => (
-            <div
+            <section
+              id={artist._id as unknown as string}
               key={artist.name}
               className=" my-8 py-1 rounded-md bg-zinc-950"
             >
@@ -85,7 +86,7 @@ export default function Arta() {
                   </div>
                 )}
               </div>
-            </div>
+            </section>
           ))}
         </>
       ) : (
