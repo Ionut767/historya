@@ -18,10 +18,10 @@ export default function Informatii() {
           <li>
             <p>
               Acest website a fost creat cu scopul de a participa la concursul
-              "Istorie și Societate în Dimensiune Virtuală". Tema aleasă pentru
-              acest concurs este "ARTA RENAȘTERII ITALIENE", o perioadă
-              fascinantă în istoria artei care a avut un impact profund asupra
-              evoluției culturii și societății.
+              &quot;Istorie și Societate în Dimensiune Virtuală&quot;. Tema
+              aleasă pentru acest concurs este &quot;ARTA RENAȘTERII
+              ITALIENE&quot;, o perioadă fascinantă în istoria artei care a avut
+              un impact profund asupra evoluției culturii și societății.
             </p>
           </li>
           <li>
@@ -119,8 +119,8 @@ export default function Informatii() {
         <ul className="list-disc m-3 sm:ml-10">
           <li>
             <p>
-              Acesta este un proiect de tip "OPEN SOURCE" ce poate fi accessat
-              si folosit de către oricine, accesând{" "}
+              Acesta este un proiect de tip &quot;OPEN SOURCE&quot; ce poate fi
+              accessat si folosit de către oricine, accesând{" "}
               <Ev
                 b
                 l
