@@ -16,7 +16,7 @@ export default function Artisti() {
       setArtist(data);
       setLoading(false);
     });
-  }, [id]);
+  }, [id, setArtist]);
   return (
     <div className="container min-h-[75vh] flex md:flex-row flex-col">
       {loading ? (
@@ -74,7 +74,7 @@ export default function Artisti() {
                     width={300}
                     height={300}
                     alt={art.name + " Image"}
-                    className="rounded-lg md:hover:absolute md:hover:scale-[200%] transition-transform duration-500"
+                    className="rounded-lg"
                   />
                 </div>
               ))}

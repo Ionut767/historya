@@ -32,7 +32,7 @@ export default function Orase({
                   <div className=" w-[99%] h-[1px] bg-slate-600 rounded-md" />
                 </div>
               ))
-            : dataOrase.map((oras, _) => (
+            : dataOrase.slice(0, 5).map((oras, _) => (
                 <Link
                   href={`/orase/${oras.name}`}
                   key={oras.name}

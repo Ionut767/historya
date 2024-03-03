@@ -21,7 +21,7 @@ export default function Home() {
       setOrase(data);
       setLoadingOrase(false);
     });
-  }, []);
+  }, [setArtists, setOrase]);
 
   return (
     <main>

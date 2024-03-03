@@ -1,6 +1,4 @@
 "use client";
-import DefText from "@/app/components/DefText";
-import Ev from "@/app/components/Ev";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Oras } from "@/app/types";
@@ -19,14 +17,14 @@ export default function Orase() {
       setOras(data);
       setLoading(false);
     });
-  }, [nume]);
+  }, [nume, setOras]);
   return (
     <div className="container min-h-[70vh] flex items-center flex-col">
       {loading ? (
         <Loading />
       ) : oras && oras !== null ? (
         <>
-          <div className="w-full md:w-3/4 flex flex-col items-center bg-zinc-950 p-4 rounded-lg shadow-lg text-white">
+          <div className="w-full md:w-3/4 flex flex-col items-center text-white">
             <Image
               src={"https://lh3.googleusercontent.com/d/" + oras.image}
               alt={oras.name}
