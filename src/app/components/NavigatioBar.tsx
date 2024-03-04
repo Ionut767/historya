@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import Logo from "./Logo";
+import ProfileButton from "./profile/ProfileButton";
 export default function NavigationBar() {
   const [open, setOpen] = useState<boolean>(false);
   return (
@@ -41,7 +42,6 @@ export default function NavigationBar() {
           className={`${open ? "block" : "hidden"} w-full md:block md:w-auto`}
         >
           <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 ">
-            {/*Buttons list */}
             {["Artisti", "Arta", "Orase"].map((bp) => (
               <li key={bp} className="cursor-pointer hover:animate-pulse">
                 <Link
@@ -52,6 +52,9 @@ export default function NavigationBar() {
                 </Link>
               </li>
             ))}
+            <li>
+              <ProfileButton />
+            </li>
           </ul>
         </div>
       </div>
