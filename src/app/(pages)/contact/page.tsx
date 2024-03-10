@@ -91,8 +91,9 @@ export default function Contact() {
               Trimite
             </button>
           </div>
-          <p>{state.success && "Mesajul a fost trimis cu succes!"}</p>
-          <div className="md:w-2/3"></div>
+          <div className="md:w-2/3 text-green-500">
+            {state.success && "Mesajul a fost trimis cu succes!"}
+          </div>
         </div>
       </form>
     </div>
