@@ -3,21 +3,6 @@ import Google from "next-auth/providers/google";
 import type { NextAuthOptions } from "next-auth";
 import { MongoDBAdapter } from "@auth/mongodb-adapter";
 import { Adapter } from "next-auth/adapters";
-declare module "next-auth" {
-  interface Session {
-    role?: string;
-  }
-
-  interface User {
-    role?: string;
-  }
-}
-
-declare module "next-auth/jwt" {
-  interface JWT {
-    role?: string;
-  }
-}
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -47,15 +32,11 @@ export const authOptions: NextAuthOptions = {
   useSecureCookies: true, // Set to true if using HTTPS
   callbacks: {
     async session({ session, token }) {
-      session.user = token.user as any;
-      session.role = token.role as any;
+      if (session?.user) session.user.role = token.role;
       return session;
     },
     async jwt({ token, user }) {
-      if (user) {
-        token.user = user;
-        token.role = user.role;
-      }
+      if (user) token.role = user.role;
       return token;
     },
   },
