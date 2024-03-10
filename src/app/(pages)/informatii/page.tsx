@@ -19,9 +19,9 @@ export default function Informatii() {
             <p>
               Acest website a fost creat cu scopul de a participa la concursul
               &quot;Istorie și Societate în Dimensiune Virtuală&quot;. Tema
-              aleasă pentru acest concurs este &quot;ARTA RENAȘTERII
-              ITALIENE&quot;, o perioadă fascinantă în istoria artei care a avut
-              un impact profund asupra evoluției culturii și societății.
+              aleasă pentru acest concurs este o perioadă fascinantă în istoria
+              artei care a avut un impact profund asupra evoluției culturii și
+              societății.
             </p>
           </li>
           <li>
@@ -190,6 +190,28 @@ export default function Informatii() {
               }}
             >
               Bucurestiivechisinoi
+            </Ev>
+          </li>
+          <li>
+            <Ev
+              b
+              lnk={{
+                out: true,
+                link: "https://www.britannica.com/list/10-famous-artworks-by-leonardo-da-vinci",
+              }}
+            >
+              Britannica
+            </Ev>
+          </li>
+          <li>
+            <Ev
+              b
+              lnk={{
+                out: true,
+                link: "https://www.worldhistory.org/collection/120/a-gallery-of-50-renaissance-paintings/",
+              }}
+            >
+              Worldhistory
             </Ev>
           </li>
         </ul>

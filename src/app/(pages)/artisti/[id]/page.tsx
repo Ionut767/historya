@@ -1,6 +1,6 @@
 "use client";
 import { getArtist } from "@/app/servercomponents/actions";
-import { Author } from "@/app/types";
+import { Art, Author } from "@/app/types";
 import { useParams } from "next/navigation";
 import Image from "next/image";
 import { useEffect, useState } from "react";

@@ -17,6 +17,7 @@ export default function Arta() {
       setLoading(false);
     });
   }, [setArtisti]);
+
   return (
     <div className="container min-h-[75vh]">
       {loading ? (

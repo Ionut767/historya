@@ -24,7 +24,7 @@ export default function Banner() {
             animate-text-shimmer bg-clip-text text-transparent bg-[linear-gradient(110deg,#e2e8f0,45%,#1e293b,55%,#e2e8f0)] bg-[length:250%_100%]"
             style={{ fontFamily: "'Gilda Display', serif" }}
           >
-            ARTA RENAȘTERII ITALIENE
+            ARTIȘTII RENAȘTERII ITALIENE
           </h1>
           <p
             className="text-xl font-bold mt-4 text-gray-700"
