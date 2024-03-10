@@ -1,15 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "../globals.css";
 
 import { getServerSession } from "next-auth";
-import NavigationBar from "../components/NavigatioBar";
-import SessionProvider from "../components/SessionProvider";
 import Pagini from "./components/pagini";
 import Ev from "../components/Ev";
-
-const inter = Inter({ subsets: ["latin"] });
-
 export const metadata: Metadata = {
   title: "Historya",
   description:
