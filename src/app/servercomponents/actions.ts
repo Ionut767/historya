@@ -3,6 +3,8 @@ import dbConnect from "@/libs/connectToDB";
 import Orase from "@/models/orase";
 import Personalitati from "@/models/personalitati";
 import { ObjectId } from "mongodb";
+import Contact from "@/models/contactform";
+import { getServerSession } from "next-auth";
 // Insert Content
 export async function insertArtist(prevState: any, formData: FormData) {
   await dbConnect();
@@ -169,5 +171,38 @@ export async function getCity(name: string) {
     };
   } catch (error) {
     return null;
+  }
+}
+// Forms
+export async function insertContactFormData(
+  prevState: any,
+  formData: FormData
+) {
+  await dbConnect();
+  const session = await getServerSession();
+  const data = {
+    nume: formData.get("nume"),
+    email: formData.get("email") || session?.user?.email,
+    mesaj: formData.get("mesaj"),
+  };
+
+  const contactForm = new Contact({
+    _id: new ObjectId(),
+    nume: data.nume,
+    email: data.email,
+    mesaj: data.mesaj,
+  });
+  try {
+    await contactForm.save();
+    return {
+      ...prevState,
+      success: true,
+    };
+  } catch (error) {
+    console.log(error);
+    return {
+      ...prevState,
+      success: false,
+    };
   }
 }
