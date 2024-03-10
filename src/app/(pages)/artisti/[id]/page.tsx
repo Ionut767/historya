@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import Loading from "@/app/components/Loading";
 import NotFound from "@/app/components/NotFound";
+import Link from "next/link";
 
 export default function Artisti() {
   const { id } = useParams();
@@ -40,7 +41,7 @@ export default function Artisti() {
                 <span className="font-normal text-gray-300">{artist.name}</span>
               </h1>
               <p className="mt-2 text-white">
-                Varsta: <br />
+                Vârstă: <br />
                 <span className="font-normal text-gray-300">{artist.age}</span>
               </p>
               <p className="mt-2 text-white">
@@ -53,24 +54,37 @@ export default function Artisti() {
                 </span>
               </p>
               <p>Imagine:</p>
-              <Image
-                src={"https://lh3.googleusercontent.com/d/" + artist.image}
-                width={600}
-                height={600}
-                alt={artist.name + " Image"}
-                className="rounded-lg"
-              />
+              <Link
+                target="_blank"
+                href={
+                  "https://drive.google.com/file/d/" + artist.image + "/view"
+                }
+                title="Apasa pe imaginea pentru a o vizualiza"
+              >
+                <Image
+                  src={"https://lh3.googleusercontent.com/d/" + artist.image}
+                  width={600}
+                  height={600}
+                  alt={artist.name + " Image"}
+                  className="rounded-lg"
+                />
+              </Link>
             </div>
           </div>
           <div className="w-full md:mb-0 mb-10 md:w-3/4 flex flex-col bg-zinc-950 p-4 rounded-lg shadow-lg">
             <h1 className="text-2xl font-bold text-white">Descriere:</h1>
             <p className="mt-2 text-gray-300">{artist.description}</p>
             <h1 className="text-2xl font-bold mt-4 text-white">
-              Opere de arta:
+              Opere de artă:
             </h1>
-            <div className="flex flex-wrap gap-3 mt-2">
+            <div className="flex flex-wrap justify-center items-center gap-3 mt-2">
               {artist.arts.map((art: any) => (
-                <div
+                <Link
+                  target="_blank"
+                  href={
+                    "https://drive.google.com/file/d/" + art.image + "/view"
+                  }
+                  title="Apasa pe imaginea pentru a o vizualiza"
                   key={art._id}
                   className="w-full sm:w-1/2 lg:w-1/3 xl:w-1/4"
                 >
@@ -81,7 +95,7 @@ export default function Artisti() {
                     alt={art.name + " Image"}
                     className="rounded-lg"
                   />
-                </div>
+                </Link>
               ))}
             </div>
           </div>

@@ -51,7 +51,7 @@ export default function Arta() {
               <div
                 className={` ${
                   artist.arts.length > 0
-                    ? "grid md:grid-cols-3 grid-cols-1"
+                    ? "grid md:grid-cols-3 grid-cols-1 items-center"
                     : ""
                 } bg-zinc-900 p-2 m-1 rounded-md`}
               >
@@ -59,15 +59,28 @@ export default function Arta() {
                   artist.arts.map((art: Art) => (
                     <div
                       key={art.name}
-                      className="group bg-zinc-950 m-2  transition-colors duration-700 h-fit shadow-lg rounded-lg overflow-hidden"
+                      className="group bg-zinc-950 m-2  transition-colors duration-700 shadow-lg rounded-lg overflow-hidden h-full flex flex-col "
                     >
-                      <Image
-                        src={"https://lh3.googleusercontent.com/d/" + art.image}
-                        width={300}
-                        height={300}
-                        alt={art.name + " Image"}
-                        className="w-full object-cover object-center"
-                      />
+                      <Link
+                        target="_blank"
+                        href={
+                          "https://drive.google.com/file/d/" +
+                          art.image +
+                          "/view"
+                        }
+                        title="Apasa pe imaginea pentru a o vizualiza"
+                        className="w-full h-full flex flex-col "
+                      >
+                        <Image
+                          src={
+                            "https://lh3.googleusercontent.com/d/" + art.image
+                          }
+                          width={300}
+                          height={300}
+                          alt={art.name + " Image"}
+                          className="w-full object-cover object-center h-full"
+                        />
+                      </Link>
                       <div className="p-6 bg-black text-center">
                         <h2 className="text-2xl font-bold text-ellipsis overflow-hidden">
                           {art.name}
