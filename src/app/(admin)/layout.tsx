@@ -35,6 +35,7 @@ export default async function AdminLayout({
             - Bine ai venit <Ev b>{session?.user?.name || "Admin"}</Ev>! -
           </p>
         </div>
+        <p>{session?.role || "None"}</p>
         {children}
       </div>
     </div>
