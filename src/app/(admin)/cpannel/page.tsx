@@ -16,9 +16,10 @@ export default function Cpannel() {
     <div className="m-1">
       {loading ? (
         <Loading />
-      ) : mesaje.length < 1 ? (
-        <p className="text-center">Se pare că nu există niciun mesaj primit!</p>
       ) : (
+        mesaje.length > 0 &&
+        mesaje &&
+        mesaje !== null &&
         mesaje?.map((mesaj, index) => (
           <div
             key={index}
