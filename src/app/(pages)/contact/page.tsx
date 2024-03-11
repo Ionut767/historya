@@ -2,13 +2,28 @@
 import Loading from "@/app/components/Loading";
 import { insertContactFormData } from "@/app/servercomponents/actions";
 import { signIn, useSession } from "next-auth/react";
-import { useFormState } from "react-dom";
+import { useFormState, useFormStatus } from "react-dom";
 
 export default function Contact() {
   const { data: session, status } = useSession();
   const [state, formAction] = useFormState(insertContactFormData, {
     success: false,
   });
+
+  function SubmitButton() {
+    const { pending } = useFormStatus();
+
+    return (
+      <button
+        type="submit"
+        className="shadow bg-gray-700 hover:bg-gray-600 shadow-outline outline-none text-gray-300 font-bold py-2 px-4 rounded"
+        aria-disabled={pending}
+      >
+        Trimite
+      </button>
+    );
+  }
+
   return status == "loading" ? (
     <Loading />
   ) : (
@@ -83,17 +98,16 @@ export default function Contact() {
           </div>
         </div>
         <div className="md:flex md:items-center">
-          <div className="md:w-1/3">
-            <button
-              className="shadow bg-gray-700 hover:bg-gray-600 shadow-outline outline-none text-gray-300 font-bold py-2 px-4 rounded"
-              type="submit"
-            >
-              Trimite
-            </button>
+          <div className="md:w-2/3">
+            {!state.success ? (
+              <SubmitButton />
+            ) : (
+              <p className="text-green-500 w-full">
+                Mesajul a fost trimis cu succes!
+              </p>
+            )}
           </div>
-          <div className="md:w-2/3 text-green-500">
-            {state.success && "Mesajul a fost trimis cu succes!"}
-          </div>
+          <div className="md:w-1/4"></div>
         </div>
       </form>
     </div>

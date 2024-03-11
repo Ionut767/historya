@@ -22,7 +22,7 @@ export default function Orase({
         reverse
         imgTitle={"Mona Lisa - 1503 -  Leonardo da Vinci"}
       >
-        <ul className="list-disc text-gray-700 font-serif">
+        <ul className="list-disc text-gray-200 font-serif">
           {loadingState
             ? [...Array(5)].map((_, i) => (
                 <div
@@ -38,7 +38,7 @@ export default function Orase({
                   key={oras.name}
                   className=" group-hover:animate-pulse"
                 >
-                  <li className="group flex flex-col my-2 py-2 px-4 items-start opacity-70 duration-200 hover:opacity-100 hover:text-white cursor-pointer space-x-2">
+                  <li className="group flex flex-col my-2 py-2 px-4 items-start opacity-70 duration-200 hover:opacity-100 hover:text-yellow-300 cursor-pointer space-x-2">
                     <Ev size={6} b>
                       {oras.name}: {oras.subdescription}
                     </Ev>

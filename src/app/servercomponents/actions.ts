@@ -173,6 +173,18 @@ export async function getCity(name: string) {
     return null;
   }
 }
+export async function getContactMessages() {
+  await dbConnect();
+  const contactMessages = (await Contact.find().lean()).map((message) => {
+    return {
+      _id: (message._id as ObjectId).toString(),
+      nume: message.nume,
+      email: message.email,
+      mesaj: message.mesaj,
+    };
+  });
+  return contactMessages;
+}
 // Forms
 export async function insertContactFormData(
   prevState: any,

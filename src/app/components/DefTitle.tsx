@@ -26,7 +26,7 @@ export default function DefTitle({
         />
       </h1>
       {subtitle && (
-        <p className=" mb-10 text-gray-600 font-extrabold">{subtitle}</p>
+        <p className=" mb-10 text-gray-100 font-extrabold">{subtitle}</p>
       )}
     </div>
   );

@@ -35,15 +35,11 @@ export default function Artisti() {
               alt={artist.name + " Image"}
               className="rounded-lg"
             />
-            <div className="mt-4 md:w-auto w-full bg-zinc-700 p-2 rounded-lg">
+            <div className="mt-4 md:w-auto w-full bg-zinc-900 p-2 rounded-lg">
               <h1 className="text-xl font-bold text-white">
                 Nume: <br />
                 <span className="font-normal text-gray-300">{artist.name}</span>
               </h1>
-              <p className="mt-2 text-white">
-                Vârstă: <br />
-                <span className="font-normal text-gray-300">{artist.age}</span>
-              </p>
               <p className="mt-2 text-white">
                 Anul nașterii: <br />
                 <span className="font-normal text-gray-300">

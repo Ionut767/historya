@@ -27,3 +27,9 @@ export type Art = {
   description?: string;
   age?: string;
 };
+export type Mesaj = {
+  _id: ObjectId;
+  nume: string;
+  email: string;
+  mesaj: string;
+};

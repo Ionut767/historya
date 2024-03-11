@@ -166,7 +166,7 @@ export default function PicturesSlider({
           {/* End of images */}
         </div>
       </div>
-      <div className=" w-full absolute flex flex-row bottom-24 lg:bottom-10 right-0 items-center justify-around">
+      <div className=" w-full absolute flex flex-row bottom-24 md:bottom-16 lg:bottom-10 right-0 items-center justify-around">
         <div className=" flex flex-row w-40">
           {typeOfBar === "nums" && (
             <Ev sb i>

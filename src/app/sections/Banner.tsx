@@ -27,10 +27,10 @@ export default function Banner() {
             ARTIȘTII RENAȘTERII ITALIENE
           </h1>
           <p
-            className="text-xl font-bold mt-4 text-gray-700"
+            className="text-xl font-bold mt-4 text-gray-100"
             style={{ fontFamily: "'Lancelot', serif" }}
           >
-            O perioadă de revigorare culturală și artistică
+            ARTĂ - ARTIȘTI - ISTORIE
           </p>
         </div>
         <div className="z-50 absolute sm:bottom-48 bottom-64 left-1/2 transform -translate-x-1/2">

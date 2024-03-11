@@ -27,7 +27,7 @@ export default function DefText({
       >
         {title}
       </DefTitle>
-      <p className=" text-lg  lg:w-3/6 w-5/6 text-gray-500">{children}</p>
+      <p className=" text-lg  lg:w-3/6 w-5/6 text-gray-100">{children}</p>
     </section>
   );
 }

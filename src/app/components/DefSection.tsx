@@ -34,10 +34,10 @@ export default function DefSection({
         <h1 className="mb-1 text-3xl font-bold leading-tight md:text-4xl text-center">
           {title}
         </h1>
-        <p className=" mb-10 text-gray-400 text-center font-semibold">
+        <p className=" mb-10 text-gray-100 text-center font-semibold">
           {subtitle}
         </p>
-        <span className="mb-2 leading-relaxed text-slate-400 ">{children}</span>
+        <span className="mb-2 leading-relaxed text-slate-100 ">{children}</span>
       </div>
     </div>
   );
