@@ -19,8 +19,11 @@ export default function Cpannel() {
       ) : mesaje?.length < 1 ? (
         <p className="text-center">Se pare că nu există niciun mesaj primit!</p>
       ) : (
-        mesaje?.map((mesaj) => (
-          <div className="m-1 w-11/12 h-auto bg-zinc-900 border-zinc-800 rounded-lg border-[1px]">
+        mesaje?.map((mesaj, index) => (
+          <div
+            key={index}
+            className="m-1 w-11/12 h-auto bg-zinc-900 border-zinc-800 rounded-lg border-[1px]"
+          >
             <p>
               <Ev sb>
                 User:{" "}
