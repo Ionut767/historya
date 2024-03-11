@@ -6,8 +6,9 @@ export default withAuth(
     console.log(request.nextUrl.pathname);
     console.log(request.nextauth.token);
     if (
-      request.nextUrl.pathname.startsWith("/cpannel") &&
-      request.nextauth.token?.role !== "admin"
+      request.nextUrl.pathname.startsWith("/cpannel") ||
+      (request.nextUrl.pathname.startsWith("/cpannel/") &&
+        request.nextauth.token?.role !== "admin")
     ) {
       return NextResponse.rewrite(new URL("/", request.url));
     }
