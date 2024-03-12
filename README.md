@@ -1,6 +1,6 @@
 # 🎨 Historya 🖌️
 
-![Historya banner](/ist/mdmedia/banner.jpg)
+![Historya banner](/mdmedia/banner.jpg)
 
 ## 📜 Despre
 
@@ -61,7 +61,7 @@ Suntem bucuroși să primim contribuții de la comunitate. Pentru a începe:
 
 ## 📄 Licență
 
-Acest proiect este [licențiat sub termenii licenței MIT](/ist/LICENSE).
+Acest proiect este [licențiat sub termenii licenței MIT](/LICENSE).
 
 ## 📞 Contact
 
